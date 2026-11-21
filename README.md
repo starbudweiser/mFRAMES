@@ -8,6 +8,8 @@
 - Provided as is, without warranty. Part of the **DESKTOP MAC TOOLKIT**.
 - In the app: menu **mFRAMES ▸ About mFRAMES**.
 
+![An A2 poster under review in mFRAMES: the client's pins and zone on the image, and the feedback thread with open and resolved notes.](docs/screenshot.png)
+
 ## Fonctions (1.0)
 
 - **Session en direct** : le prestataire invite son client (code, QR code ou lien) ; annotations, réponses et position de lecture (« Suivez-moi ») circulent en pair-à-pair, chiffrées de bout en bout (AES-GCM, clé dérivée du secret de l'invitation, compteur anti-rejeu).

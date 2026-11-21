@@ -3,6 +3,8 @@ import AppKit
 
 @MainActor
 enum DemoData {
+    /// Texte de démonstration : français sur un Mac en français, anglais sinon (captures en anglais).
+    private static func D(_ fr: String, _ en: String) -> String { L.lang == .fr ? fr : en }
     static var enabled: Bool { ProcessInfo.processInfo.environment["MFRAMES_DEMO"] != nil }
 
     static func load(into model: AppModel) {
@@ -22,8 +24,8 @@ enum DemoData {
 
         let v1 = ProjectVersion(id: UUID(), number: 1, path: img.path, proxyPath: nil, date: Date().addingTimeInterval(-86400))
         let v2 = ProjectVersion(id: UUID(), number: 2, path: img.path, proxyPath: nil, date: Date())
-        let p = Project(id: UUID(), name: "Affiche A2", client: "Boutique Aurore", kind: .image, versions: [v1, v2], created: Date())
-        let p2 = Project(id: UUID(), name: "Spot 30 s", client: "Boutique Aurore", kind: .video, versions: [ProjectVersion(id: UUID(), number: 3, path: "", proxyPath: nil, date: Date())], created: Date())
+        let p = Project(id: UUID(), name: D("Affiche A2", "A2 poster"), client: "Boutique Aurore", kind: .image, versions: [v1, v2], created: Date())
+        let p2 = Project(id: UUID(), name: D("Spot 30 s", "30 s spot"), client: "Boutique Aurore", kind: .video, versions: [ProjectVersion(id: UUID(), number: 3, path: "", proxyPath: nil, date: Date())], created: Date())
         let p3 = Project(id: UUID(), name: "Catalogue", client: "Boutique Aurore", kind: .pdf, versions: [ProjectVersion(id: UUID(), number: 2, path: "", proxyPath: nil, date: Date())], created: Date())
         let p4 = Project(id: UUID(), name: "Logo", client: "Maison Verne", kind: .design, versions: [ProjectVersion(id: UUID(), number: 1, path: "", proxyPath: nil, date: Date())], created: Date())
         model.store.projects = [p, p2, p3, p4]
@@ -35,15 +37,15 @@ enum DemoData {
         func op(_ seq: Int, _ lamport: Int, _ kind: OpKind, _ value: some Encodable) -> Op {
             Op(id: UUID(), author: marie.id, seq: seq, lamport: lamport, kind: kind, payload: (try? JSON.encoder.encode(value)) ?? Data())
         }
-        let a1 = Annotation(id: UUID(), versionID: v2.id, author: marie, kind: .pin, x: 0.23, y: 0.22, w: 0, h: 0, time: nil, page: nil, text: "Le titre est trop petit, on peut l'agrandir ?", status: .open, deleted: false, lamport: 1, created: Date())
-        let a2 = Annotation(id: UUID(), versionID: v2.id, author: marie, kind: .zone, x: 0.10, y: 0.12, w: 0.36, h: 0.14, time: nil, page: nil, text: "Cette zone est trop chargée.", status: .open, deleted: false, lamport: 3, created: Date())
-        let m1 = ChatMessage(id: UUID(), versionID: v2.id, annotationID: a1.id, author: model.store.author, text: "Je l'agrandis maintenant, nouvelle version dans 10 s.", deleted: false, lamport: 2, created: Date())
-        let a3 = Annotation(id: UUID(), versionID: v2.id, author: marie, kind: .pin, x: 0.74, y: 0.30, w: 0, h: 0, time: nil, page: nil, text: "Le soleil pourrait être plus petit.", status: .resolved, deleted: false, lamport: 4, created: Date())
+        let a1 = Annotation(id: UUID(), versionID: v2.id, author: marie, kind: .pin, x: 0.23, y: 0.22, w: 0, h: 0, time: nil, page: nil, text: D("Le titre est trop petit, on peut l'agrandir ?", "The title is too small, can we make it bigger?"), status: .open, deleted: false, lamport: 1, created: Date())
+        let a2 = Annotation(id: UUID(), versionID: v2.id, author: marie, kind: .zone, x: 0.10, y: 0.12, w: 0.36, h: 0.14, time: nil, page: nil, text: D("Cette zone est trop chargée.", "This area feels too busy."), status: .open, deleted: false, lamport: 3, created: Date())
+        let m1 = ChatMessage(id: UUID(), versionID: v2.id, annotationID: a1.id, author: model.store.author, text: D("Je l'agrandis maintenant, nouvelle version dans 10 s.", "Making it bigger now, new version in 10 s."), deleted: false, lamport: 2, created: Date())
+        let a3 = Annotation(id: UUID(), versionID: v2.id, author: marie, kind: .pin, x: 0.74, y: 0.30, w: 0, h: 0, time: nil, page: nil, text: D("Le soleil pourrait être plus petit.", "The sun could be a little smaller."), status: .resolved, deleted: false, lamport: 4, created: Date())
         // retours datés sur la vidéo « Spot 30 s » (essais des modules de montage)
         let spot = p2.versions[0].id
-        let sa1 = Annotation(id: UUID(), versionID: spot, author: marie, kind: .pin, x: 0.46, y: 0.12, w: 0, h: 0, time: 2.0, page: nil, text: "Le titre est trop petit", status: .open, deleted: false, lamport: 5, created: Date())
-        let sa2 = Annotation(id: UUID(), versionID: spot, author: marie, kind: .pin, x: 0.7, y: 0.3, w: 0, h: 0, time: 5.5, page: nil, text: "Logo coupé à droite", status: .open, deleted: false, lamport: 6, created: Date())
-        let sa3 = Annotation(id: UUID(), versionID: spot, author: marie, kind: .pin, x: 0.3, y: 0.6, w: 0, h: 0, time: 9.0, page: nil, text: "Fondu à revoir", status: .resolved, deleted: false, lamport: 7, created: Date())
+        let sa1 = Annotation(id: UUID(), versionID: spot, author: marie, kind: .pin, x: 0.46, y: 0.12, w: 0, h: 0, time: 2.0, page: nil, text: D("Le titre est trop petit", "The title is too small"), status: .open, deleted: false, lamport: 5, created: Date())
+        let sa2 = Annotation(id: UUID(), versionID: spot, author: marie, kind: .pin, x: 0.7, y: 0.3, w: 0, h: 0, time: 5.5, page: nil, text: D("Logo coupé à droite", "Logo cut off on the right"), status: .open, deleted: false, lamport: 6, created: Date())
+        let sa3 = Annotation(id: UUID(), versionID: spot, author: marie, kind: .pin, x: 0.3, y: 0.6, w: 0, h: 0, time: 9.0, page: nil, text: D("Fondu à revoir", "Fade needs another pass"), status: .resolved, deleted: false, lamport: 7, created: Date())
         model.store.receive([op(1, 1, .annotation, a1), op(2, 3, .annotation, a2), op(3, 4, .annotation, a3), op(4, 5, .annotation, sa1), op(5, 6, .annotation, sa2), op(6, 7, .annotation, sa3)])
         model.store.addMessage(versionID: v2.id, annotationID: a1.id, text: m1.text)
     }
