@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>mFRAMES</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<div id="banner" class="banner hidden"></div>
+<div id="join" class="join hidden"><h1><span class="m">m</span>FRAMES</h1><p id="joinmsg" data-i18n="join">Ouvrez le lien d'invitation reçu de votre prestataire.</p></div>
+<main id="app" class="app hidden">
+  <header class="bar">
+    <div class="cap id"><span class="tile" id="kindtile">▶</span><div><b id="title">…</b><small id="subtitle"></small></div></div>
+    <div class="grow"></div>
+    <div class="cap" id="copy"></div>
+    <div class="cap" id="peer"><span class="dot" id="peerdot"></span><span id="peername">…</span></div>
+    <label class="cap"><span data-i18n="follow">Suivre</span><input type="checkbox" id="follow" checked></label>
+  </header>
+  <section class="row">
+    <div class="card" id="card">
+      <div class="stage" id="stage"><div class="empty" id="empty"><div class="bar2"><i id="prog"></i></div><span id="progtxt" data-i18n="waiting">En attente du média…</span></div></div>
+      <div class="tools"><button id="tpin" class="on" title="Épingle" data-i18n-title="pin">●</button><button id="tzone" title="Zone" data-i18n-title="zone">▭</button></div>
+    </div>
+    <aside class="panel">
+      <div class="phd"><b data-i18n="feedback">Retours</b><span class="pill" id="open">0 ouvert</span></div>
+      <div class="msgs" id="msgs"></div>
+      <form class="compose" id="form"><input id="text" placeholder="Répondre ou annoter…" data-i18n-ph="placeholder" autocomplete="off"><button class="go" title="Envoyer" data-i18n-title="send">↑</button></form>
+    </aside>
+  </section>
+</main>
+<script src="crypto.js"></script><script src="app.js"></script>
+</body></html>

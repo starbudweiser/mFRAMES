@@ -1,0 +1,10 @@
+.DS_Store
+*.app
+build/
+Icon?
+CLAUDE.md
+ETAT.md
+maquettes/
+mFRAMES_Conception_v1.pdf
+docs/presentation/fonts/
+docs/presentation/work/

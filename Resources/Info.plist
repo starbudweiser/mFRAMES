@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key><string>en</string>
+	<key>CFBundleDisplayName</key><string>__NAME__</string>
+	<key>CFBundleExecutable</key><string>mFRAMES</string>
+	<key>CFBundleIconFile</key><string>AppIcon</string>
+	<key>CFBundleIdentifier</key><string>__ID__</string>
+	<key>CFBundleLocalizations</key><array><string>fr</string><string>en</string><string>es</string><string>it</string></array>
+	<key>CFBundleName</key><string>__NAME__</string>
+	<key>CFBundlePackageType</key><string>APPL</string>
+	<key>CFBundleShortVersionString</key><string>__VERSION__</string>
+	<key>CFBundleVersion</key><string>__BUILD__</string>
+	<key>CFBundleURLTypes</key><array><dict><key>CFBundleURLName</key><string>Invitation mFRAMES</string><key>CFBundleURLSchemes</key><array><string>mframes</string></array></dict></array>
+	<key>LSApplicationCategoryType</key><string>public.app-category.video</string>
+	<key>LSMinimumSystemVersion</key><string>14.0</string>
+	<key>NSBonjourServices</key><array><string>_mframes._tcp</string></array>
+	<key>NSLocalNetworkUsageDescription</key><string>mFRAMES uses the local network to connect you directly with your client during a review session.</string>
+	<key>NSMicrophoneUsageDescription</key><string>mFRAMES uses the microphone to dictate your comments.</string>
+	<key>NSSpeechRecognitionUsageDescription</key><string>mFRAMES turns your voice into text for your comments.</string>
+	<key>NSHighResolutionCapable</key><true/>
+	<key>NSHumanReadableCopyright</key><string>© 2026 Starbudweiser</string>
+	<key>NSPrincipalClass</key><string>NSApplication</string>
+	<key>NSSupportsAutomaticTermination</key><false/>
+	<key>NSSupportsSuddenTermination</key><false/>
+</dict>
+</plist>

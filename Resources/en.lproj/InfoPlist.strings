@@ -1,0 +1,3 @@
+"NSLocalNetworkUsageDescription" = "mFRAMES uses the local network to connect you directly with your client during a review session.";
+"NSMicrophoneUsageDescription" = "mFRAMES uses the microphone to dictate your comments.";
+"NSSpeechRecognitionUsageDescription" = "mFRAMES turns your voice into text for your comments.";
