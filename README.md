@@ -44,3 +44,9 @@ Pas essayé :
 - Essais ponctuels : `mFRAMES --selftest`, `--selftest-relay hôte:port`, `--selftest-bridge`, `--selftest-net`, `--make-proxy fichier…`, `--capture sortie.png --theme sombre|clair` (avec `MFRAMES_DEMO=1`).
 - Publication : `./release.sh 1.0.0` (build universel, notarisation, release GitHub).
 - Conception : `mFRAMES_Conception_v1.pdf` et `maquettes/`.
+
+## Support / Soutenir
+
+This app is free. If it is useful to you, you can support the project (optional, no reward expected): [GitHub Sponsors](https://github.com/sponsors/starbudweiser).
+
+Cette appli est gratuite. Si elle vous est utile, vous pouvez soutenir le projet (facultatif, sans contrepartie) : [GitHub Sponsors](https://github.com/sponsors/starbudweiser).
